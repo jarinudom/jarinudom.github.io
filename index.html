@@ -1,98 +1,563 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jarin Udom - Homepage</title>
-    <meta name="description" content="Personal page of Jarin Udom - Software Developer, Cybersecurity Sales Engineer, and Owner of Bards & Cards Game Shop">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎲</text></svg>">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jarin Udom</title>
+    <meta
+      name="description"
+      content="Jarin Udom — builder, cybersecurity sales engineer, and owner of Bards & Cards Game Shop in San Diego."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎲</text></svg>"
+    />
+
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 95vh;
+      :root {
+        --bg0: #070a16;
+        --bg1: #0b1028;
+        --card: rgba(255, 255, 255, 0.06);
+        --card2: rgba(255, 255, 255, 0.09);
+        --border: rgba(255, 255, 255, 0.12);
+        --text: rgba(255, 255, 255, 0.92);
+        --muted: rgba(255, 255, 255, 0.7);
+        --muted2: rgba(255, 255, 255, 0.55);
+        --accent: #7c5cff;
+        --accent2: #20d3ff;
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+        --radius: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          ui-sans-serif,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          "Helvetica Neue",
+          Arial,
+          "Apple Color Emoji",
+          "Segoe UI Emoji";
+        color: var(--text);
+        line-height: 1.55;
+        background:
+          radial-gradient(1200px 800px at 20% 10%, rgba(124, 92, 255, 0.35), transparent 60%),
+          radial-gradient(900px 700px at 90% 0%, rgba(32, 211, 255, 0.25), transparent 55%),
+          radial-gradient(900px 700px at 40% 105%, rgba(255, 105, 180, 0.18), transparent 55%),
+          linear-gradient(180deg, var(--bg0), var(--bg1));
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:focus-visible {
+        outline: 3px solid rgba(124, 92, 255, 0.65);
+        outline-offset: 3px;
+        border-radius: 10px;
+      }
+
+      .page {
+        min-height: 100%;
+        padding: 44px 18px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .container {
+        width: min(980px, 100%);
+      }
+
+      .card {
+        background: linear-gradient(180deg, var(--card2), var(--card));
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        overflow: hidden;
+      }
+
+      .hero {
+        padding: 34px 28px;
+        position: relative;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(1000px 600px at 0% 0%, rgba(124, 92, 255, 0.18), transparent 60%),
+          radial-gradient(700px 500px at 100% 0%, rgba(32, 211, 255, 0.12), transparent 60%);
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1.2fr 0.45fr 0.55fr;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .avatar {
+        width: 100%;
+        max-width: 190px;
+        aspect-ratio: 1 / 1;
+        border-radius: 999px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(0, 0, 0, 0.18);
+        box-shadow:
+          0 18px 40px rgba(0, 0, 0, 0.45),
+          0 0 0 6px rgba(124, 92, 255, 0.12);
+        margin-left: auto;
+      }
+
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      @media (max-width: 820px) {
+        .hero-inner {
+          grid-template-columns: 1fr;
         }
-        .container {
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            max-width: 700px;
-            width: 100%;
-            text-align: center;
-            backdrop-filter: blur(10px);
+
+        .avatar {
+          max-width: 160px;
+          margin: 14px 0 2px;
         }
-        h1 {
-            color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+      }
+
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(0, 0, 0, 0.18);
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .kicker-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        box-shadow: 0 0 0 4px rgba(124, 92, 255, 0.18);
+      }
+
+      h1 {
+        margin: 14px 0 10px;
+        font-size: clamp(2.2rem, 4vw, 3.2rem);
+        line-height: 1.06;
+        letter-spacing: -0.02em;
+      }
+
+      .subtitle {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.12rem;
+        max-width: 58ch;
+      }
+
+      .cta-row {
+        margin-top: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        transition:
+          transform 120ms ease,
+          background 120ms ease,
+          border-color 120ms ease;
+        user-select: none;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.085);
+        border-color: rgba(255, 255, 255, 0.22);
+      }
+
+      .btn.primary {
+        background: linear-gradient(135deg, rgba(124, 92, 255, 0.95), rgba(32, 211, 255, 0.85));
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+
+      .btn.primary:hover {
+        background: linear-gradient(135deg, rgba(124, 92, 255, 1), rgba(32, 211, 255, 0.92));
+      }
+
+      .btn svg {
+        width: 18px;
+        height: 18px;
+        opacity: 0.95;
+      }
+
+      .quick {
+        padding: 18px 18px 18px 18px;
+        border-left: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      @media (max-width: 820px) {
+        .quick {
+          border-left: none;
+          border-top: 1px solid rgba(255, 255, 255, 0.12);
+          padding-top: 16px;
         }
-        h2 {
-            color: #34495e;
-            font-size: 1.5rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
+      }
+
+      .quick h2 {
+        margin: 0 0 10px;
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.88);
+        letter-spacing: 0.01em;
+      }
+
+      .pill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .pill {
+        padding: 8px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: rgba(0, 0, 0, 0.18);
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .grid {
+        margin-top: 16px;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 14px;
+      }
+
+      .section {
+        padding: 22px 22px;
+      }
+
+      .section h2 {
+        margin: 0 0 10px;
+        font-size: 1.2rem;
+        letter-spacing: -0.01em;
+      }
+
+      .section p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .item {
+        grid-column: span 6;
+      }
+
+      @media (max-width: 820px) {
+        .item {
+          grid-column: span 12;
         }
-        p {
-            margin-bottom: 1.2rem;
-            font-size: 1.1rem;
-            color: #555;
+      }
+
+      .item .label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 10px;
+        font-weight: 650;
+      }
+
+      .item .label svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .footer {
+        margin: 18px 0 0;
+        text-align: center;
+        color: var(--muted2);
+        font-size: 0.95rem;
+      }
+
+      .footer a {
+        color: rgba(255, 255, 255, 0.82);
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 255, 255, 0.28);
+      }
+
+      .footer a:hover {
+        text-decoration-color: rgba(255, 255, 255, 0.55);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .btn {
+          transition: none;
         }
-        .links {
-            margin-top: 2.5rem;
-            padding-top: 2rem;
-            border-top: 2px solid #ecf0f1;
+        .btn:hover {
+          transform: none;
         }
-        .links a {
-            display: inline-block;
-            margin: 0 10px 15px 10px;
-            padding: 12px 24px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-        .links a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-            text-decoration: none;
-        }
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Jarin Udom</h1>
-        <p>Welcome to my personal page!</p>
+  </head>
 
-        <h2>My Background</h2>
-        <p>
-            I have a history rooted in <strong>Software Development</strong>, building solutions and working with code.
-        </p>
-        <p>
-            My career then transitioned into <strong>Cybersecurity Sales Engineering</strong>, where I combined technical knowledge with client interaction to provide security solutions.
-        </p>
-        <p>
-             Currently, I am the proud <strong>Owner of Bards & Cards Game Shop</strong>, a community space dedicated to tabletop games, trading cards, and fostering connection.
-        </p>
+  <body>
+    <main class="page">
+      <div class="container">
+        <section class="card hero" aria-label="Intro">
+          <div class="hero-inner">
+            <div class="hero-inner-left">
+              <div class="kicker">
+                <span class="kicker-dot" aria-hidden="true"></span>
+                <span>San Diego • tabletop & tech</span>
+              </div>
 
-        <div class="links">
-            <h2>Connect & Explore</h2>
-            <a href="https://www.linkedin.com/in/jarinudom/" target="_blank">LinkedIn</a>
-            <a href="https://twitter.com/jarin" target="_blank">Twitter</a>
-            <a href="https://bardsandcards.com" target="_blank">Bards & Cards Game Shop</a>
-        </div>
-    </div>
-</body>
+              <h1>Jarin Udom</h1>
+              <p class="subtitle">
+                Builder by instinct. Former software dev → cybersecurity sales engineer.
+                Now the owner of <strong>Bards &amp; Cards</strong>, a community game shop.
+              </p>
+
+              <div class="cta-row" aria-label="Links">
+                <a class="btn primary" href="https://bardsandcards.com" target="_blank" rel="noreferrer">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M4 10.5V20a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-9.5"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M3 11l9-8 9 8"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Bards &amp; Cards
+                </a>
+
+                <a class="btn" href="mailto:jarin@jarinudom.com">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M4 6h16v12H4z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="m4 7 8 6 8-6"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  Email
+                </a>
+
+                <a class="btn" href="https://www.linkedin.com/in/jarinudom/" target="_blank" rel="noreferrer">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2a4 4 0 0 1 2-3z"
+                      fill="currentColor"
+                      opacity="0.92"
+                    />
+                    <path d="M2 9h4v12H2z" fill="currentColor" opacity="0.92" />
+                    <path
+                      d="M4 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
+                      fill="currentColor"
+                      opacity="0.92"
+                    />
+                  </svg>
+                  LinkedIn
+                </a>
+
+                <a class="btn" href="https://twitter.com/jarin" target="_blank" rel="noreferrer">
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path
+                      d="M18.9 2H22l-6.8 7.8L23 22h-6.8l-5.3-6.9L4.8 22H2l7.4-8.5L1 2h7l4.8 6.3L18.9 2z"
+                      fill="currentColor"
+                      opacity="0.92"
+                    />
+                  </svg>
+                  X
+                </a>
+              </div>
+            </div>
+
+            <div class="avatar" aria-label="Photo">
+              <img
+                src="assets/jarin-headshot-square-600.jpg"
+                srcset="assets/jarin-headshot-square-600.jpg 600w, assets/jarin-headshot-square-900.jpg 900w"
+                sizes="(max-width: 820px) 160px, 190px"
+                alt="Headshot of Jarin Udom"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+
+            <aside class="quick" aria-label="Quick facts">
+              <h2>Quick facts</h2>
+              <div class="pill-list">
+                <span class="pill">Owner • Bards &amp; Cards</span>
+                <span class="pill">Cybersecurity SE</span>
+                <span class="pill">Software background</span>
+                <span class="pill">Community builder</span>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="grid" aria-label="Details">
+          <div class="card section item">
+            <div class="label">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M12 2v20"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M7 7h5a4 4 0 0 1 0 8H7V7z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Business
+            </div>
+            <h2>Bards &amp; Cards Game Shop</h2>
+            <p>
+              A tabletop and TCG community space in San Diego — events, leagues, and a
+              welcoming place to play.
+            </p>
+          </div>
+
+          <div class="card section item">
+            <div class="label">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M4 6h16v12H4z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M8 10h8"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M8 14h5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              Work
+            </div>
+            <h2>Cybersecurity &amp; engineering</h2>
+            <p>
+              I like pragmatic systems: clear objectives, fast feedback loops, and
+              tooling that actually gets used.
+            </p>
+          </div>
+
+          <div class="card section item">
+            <div class="label">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M12 2 2 7l10 5 10-5-10-5Z"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M2 17l10 5 10-5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M2 12l10 5 10-5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Interests
+            </div>
+            <h2>Tabletop, ops, automation</h2>
+            <p>
+              I’m into running great events, keeping operations smooth, and
+              automating the boring stuff so people can focus on what matters.
+            </p>
+          </div>
+
+          <div class="card section item">
+            <div class="label">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M20 6 9 17l-5-5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Contact
+            </div>
+            <h2>Say hi</h2>
+            <p>
+              The best way to reach me is email:
+              <a href="mailto:jarin@jarinudom.com">jarin@jarinudom.com</a>.
+            </p>
+          </div>
+        </section>
+
+        <p class="footer">
+          Hosted on GitHub Pages •
+          <a href="https://github.com/jarinudom/jarinudom.github.io" target="_blank" rel="noreferrer">source</a>
+        </p>
+      </div>
+    </main>
+  </body>
 </html>
